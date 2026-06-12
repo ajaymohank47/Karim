@@ -263,10 +263,42 @@
 /* Responsiveness */
 @media (max-width: 768px) {
   .portfolio-grid {
-    gap: 16px;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  .portfolio-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .portfolio-card {
+    scroll-snap-align: center;
+    width: 200px !important;
   }
   .portfolio-card:hover {
     transform: none;
+  }
+  .portfolio-info {
+    padding: 12px !important;
+  }
+  .portfolio-category {
+    font-size: 0.6rem !important;
+    padding: 2px 6px !important;
+    margin-bottom: 6px !important;
+  }
+  .portfolio-title {
+    font-size: 0.95rem !important;
+    margin-bottom: 4px !important;
+  }
+  .portfolio-desc {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+  }
+  .portfolio-video {
+    object-fit: contain !important;
+    background-color: #080808;
   }
 }
 

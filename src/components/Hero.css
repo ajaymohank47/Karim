@@ -710,12 +710,14 @@
     text-align: center;
   }
   .hero-portfolio-showcase {
-    height: auto;
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    height: 420px;
+    margin-top: 50px;
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
   .hero-portrait-frame {
     width: 240px;
@@ -723,36 +725,103 @@
     border-radius: 12px;
   }
   .hero-portrait-frame.logo-only-mode {
-    width: 260px;
+    width: 170px;
     height: auto;
     border-radius: 0;
-    margin: 0 auto;
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: floatLogoMobile 6s ease-in-out infinite;
+  }
+  .logo-splash-bg {
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   @keyframes floatLogoMobile {
     0%, 100% {
-      transform: translateY(0);
+      transform: translate(-50%, -50%) translateY(0);
     }
     50% {
-      transform: translateY(-8px);
+      transform: translate(-50%, -50%) translateY(-8px);
     }
   }
   .orbit-badge {
-    position: static;
-    transform: none !important;
-    animation: none !important;
-    width: 100%;
-    max-width: 260px;
+    position: absolute !important;
+    width: auto;
+    max-width: 135px;
+    padding: 4px 8px;
+    gap: 6px;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    z-index: 4;
+  }
+  .orbit-avatar {
+    width: 24px;
+    height: 24px;
+  }
+  .orbit-name {
+    font-size: 0.52rem;
+  }
+  .orbit-metric {
+    font-size: 0.72rem;
+  }
+  .orbit-badge-adnaan {
+    top: 15px;
+    left: 5px;
+    animation: floatBadge1 7s ease-in-out infinite !important;
+  }
+  .orbit-badge-fatima {
+    top: 95px;
+    right: 5px;
+    animation: floatBadge2 8s ease-in-out infinite !important;
+  }
+  .orbit-badge-shadan {
+    bottom: 110px;
+    left: 5px;
+    animation: floatBadge3 6.5s ease-in-out infinite !important;
+  }
+  .orbit-badge-subhi {
+    bottom: 140px;
+    right: 5px;
+    animation: floatBadge4 7.5s ease-in-out infinite !important;
   }
   .retention-card {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none !important;
-    animation: floatRetentionMobile 6s ease-in-out infinite;
-    margin-top: 10px;
-    width: 100%;
-    max-width: 260px;
+    position: absolute !important;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    animation: floatRetentionMobile 8s ease-in-out infinite !important;
+    margin-top: 0;
+    width: 200px;
+    padding: 8px 12px;
+    z-index: 5;
+  }
+  @keyframes floatRetentionMobile {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-6px);
+    }
+  }
+  .retention-value {
+    font-size: 1.15rem;
+  }
+  .retention-label {
+    font-size: 0.58rem;
+  }
+  .retention-badge {
+    font-size: 0.55rem;
+    padding: 1px 5px;
+  }
+  .retention-svg {
+    height: 45px;
   }
   .hero-social-links {
     justify-content: center;
@@ -773,14 +842,5 @@
   }
   .scroll-indicator {
     display: none;
-  }
-}
-
-@keyframes floatRetentionMobile {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
   }
 }

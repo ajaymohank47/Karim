@@ -134,19 +134,37 @@
 
 @media (max-width: 768px) {
   .services-section {
-    padding: 50px 0;
+    padding: 40px 0;
   }
   .services-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   .service-card {
-    padding: 22px 20px;
+    padding: 12px 10px;
+    border-radius: 8px;
   }
   .service-number {
-    font-size: 3.5rem;
-    top: 12px;
-    right: 12px;
+    font-size: 1.8rem;
+    top: 4px;
+    right: 10px;
+  }
+  .service-icon-wrapper {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+  }
+  .service-icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+  }
+  .service-title {
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+  }
+  .service-desc {
+    font-size: 0.7rem;
+    line-height: 1.35;
   }
 }
 
@@ -281,7 +299,25 @@
     margin-bottom: 16px;
   }
   .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     justify-content: center;
-    gap: 16px;
+    width: 100%;
+  }
+  .tool-card {
+    padding: 12px 14px;
+    gap: 10px;
+    border-radius: 8px;
+    justify-content: flex-start;
+  }
+  .tool-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+  .tool-name {
+    font-size: 0.95rem;
   }
 }

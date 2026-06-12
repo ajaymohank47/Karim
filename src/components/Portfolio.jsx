@@ -271,6 +271,71 @@ function PortfolioCard({ project, cardVariants, isActive, onActivate, onDeactiva
 export default function Portfolio() {
   const [activeProjectId, setActiveProjectId] = useState(null);
   const [sliderVal, setSliderVal] = useState(50);
+  const gridRef = useRef(null);
+
+  React.useEffect(() => {
+    const el = gridRef.current;
+    if (!el || activeProjectId !== null) return;
+
+    // Only auto-scroll on mobile/tablet viewports
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+
+    let animationFrameId;
+    let isInteracting = false;
+    let speed = 0.45; // smooth scrolling speed (px per frame)
+    let direction = 1; // 1 = forward, -1 = backward
+    let snapTimeoutId;
+
+    // Turn off snap initially during auto-scroll to prevent browser snap fights
+    el.style.scrollSnapType = 'none';
+
+    const scroll = () => {
+      if (!isInteracting) {
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (maxScroll > 0) {
+          el.scrollLeft += speed * direction;
+          
+          if (el.scrollLeft >= maxScroll - 1) {
+            direction = -1;
+          } else if (el.scrollLeft <= 1) {
+            direction = 1;
+          }
+        }
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+
+    const handleTouchStart = () => {
+      isInteracting = true;
+      clearTimeout(snapTimeoutId);
+      // Re-enable scroll snap while user is dragging
+      el.style.scrollSnapType = 'x mandatory';
+    };
+
+    const handleTouchEnd = () => {
+      clearTimeout(snapTimeoutId);
+      // Wait for flick/inertia to settle, then disable snap and resume auto-scroll
+      snapTimeoutId = setTimeout(() => {
+        isInteracting = false;
+        el.style.scrollSnapType = 'none';
+      }, 1500);
+    };
+
+    el.addEventListener('touchstart', handleTouchStart, { passive: true });
+    el.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(snapTimeoutId);
+      if (el) {
+        el.removeEventListener('touchstart', handleTouchStart);
+        el.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, [activeProjectId]);
 
   const containerVariants = {
     hidden: {},
@@ -305,6 +370,7 @@ export default function Portfolio() {
         </div>
 
         <motion.div 
+          ref={gridRef}
           className="portfolio-grid"
           variants={containerVariants}
           initial="hidden"
