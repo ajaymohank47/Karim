@@ -134,7 +134,7 @@ export default function Hero() {
             animate="visible"
           >
             <button className="btn btn-gold" onClick={() => handleScrollTo('work')}>
-              See My Growth Case Studies
+              See My Work
             </button>
             <button className="btn btn-outline" onClick={() => handleScrollTo('contact')}>
               Contact Now
