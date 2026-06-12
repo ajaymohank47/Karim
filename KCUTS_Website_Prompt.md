@@ -140,7 +140,7 @@ Build exactly these sections in this order:
   - Submit button: `SEND PROJECT BRIEF` (gold, full width on mobile)
 - Below form: direct links
   - WhatsApp: `+91 77382 27862`
-  - Email: `karimbruh@gmail.com`
+  - Email: `karimbruh841@gmail.com`
 - Form should show a success state (no backend needed — just UI state toggle)
 
 ---

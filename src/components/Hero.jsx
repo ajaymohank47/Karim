@@ -169,6 +169,43 @@ export default function Hero() {
         >
           {/* Main Logo Showcase */}
           <div className="hero-portrait-frame logo-only-mode">
+            {/* Animated Paint Splatter Background (matching reference image) */}
+            <div className="logo-splash-bg">
+              <svg viewBox="0 0 500 500" className="paint-splatter-svg">
+                <defs>
+                  {/* High quality paint splatter displacement filter */}
+                  <filter id="paint-splatter" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                </defs>
+                
+                {/* Wrap in group with paint splatter displacement filter */}
+                <g filter="url(#paint-splatter)">
+                  {/* Overlapping colored blobs to match the reference image */}
+                  <circle cx="170" cy="230" r="72" fill="#C8A850" className="splat-blob blob-red" />
+                  <circle cx="270" cy="180" r="68" fill="#C8A850" className="splat-blob blob-yellow-top" />
+                  <circle cx="340" cy="200" r="65" fill="#C8A850" className="splat-blob blob-green-top" />
+                  <circle cx="370" cy="270" r="62" fill="#C8A850" className="splat-blob blob-purple" />
+                  <circle cx="300" cy="320" r="68" fill="#C8A850" className="splat-blob blob-blue" />
+                  <circle cx="240" cy="330" r="65" fill="#C8A850" className="splat-blob blob-green-bottom" />
+                  <circle cx="180" cy="300" r="68" fill="#C8A850" className="splat-blob blob-orange" />
+                  <circle cx="150" cy="260" r="58" fill="#C8A850" className="splat-blob blob-pink" />
+                  <circle cx="260" cy="250" r="50" fill="#C8A850" className="splat-blob blob-center-red" />
+                  <circle cx="230" cy="190" r="42" fill="#C8A850" className="splat-blob blob-orange-top" />
+                  
+                  {/* Small splatter droplets */}
+                  <circle cx="95" cy="190" r="10" fill="#C8A850" className="splat-drop drop-1" />
+                  <circle cx="105" cy="295" r="12" fill="#C8A850" className="splat-drop drop-2" />
+                  <circle cx="390" cy="170" r="9" fill="#C8A850" className="splat-drop drop-3" />
+                  <circle cx="430" cy="315" r="13" fill="#C8A850" className="splat-drop drop-4" />
+                  <circle cx="330" cy="410" r="10" fill="#C8A850" className="splat-drop drop-5" />
+                  <circle cx="170" cy="400" r="14" fill="#C8A850" className="splat-drop drop-6" />
+                  <circle cx="210" cy="110" r="9" fill="#C8A850" className="splat-drop drop-7" />
+                  <circle cx="360" cy="130" r="8" fill="#C8A850" className="splat-drop drop-8" />
+                </g>
+              </svg>
+            </div>
             <img src={stickerLogo} alt="K.CUTS Logo" className="hero-portrait-img sticker-logo-img" />
             <div className="portrait-glow" />
           </div>

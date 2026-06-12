@@ -9,7 +9,7 @@ export default function Contact() {
     email: '',
     projectType: 'YouTube Edit',
     videoLength: '1-5 mins',
-    brief: ''
+    message: ''
   });
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState("");
@@ -28,7 +28,7 @@ export default function Contact() {
     
     // Construct FormData from target form
     const fData = new FormData(e.target);
-    fData.append("access_key", "1dc4d600-ec56-48c7-92da-ac461a96f8d0");
+    fData.append("access_key", "a27ee7f3-a383-4bba-84b3-ce0ac50fe53d");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -63,13 +63,13 @@ export default function Contact() {
           </p>
           
           <div className="contact-details">
-            <a href="mailto:karimbruh@gmail.com" className="contact-link-item">
+            <a href="mailto:karimbruh841@gmail.com" className="contact-link-item">
               <div className="contact-icon-box">
                 <Mail size={20} />
               </div>
               <div className="contact-link-texts">
                 <span className="font-mono text-muted">EMAIL DIRECTLY</span>
-                <span className="contact-val">karimbruh@gmail.com</span>
+                <span className="contact-val">karimbruh841@gmail.com</span>
               </div>
             </a>
 
@@ -172,13 +172,13 @@ export default function Contact() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="brief" className="form-label font-mono text-muted">Project Brief</label>
+                    <label htmlFor="message" className="form-label font-mono text-muted">Project Brief</label>
                     <textarea 
-                      id="brief" 
-                      name="brief" 
+                      id="message" 
+                      name="message" 
                       rows="3" 
                       required 
-                      value={formData.brief} 
+                      value={formData.message} 
                       onChange={handleChange}
                       placeholder="Tell me about your project — style, pacing references, camera source..."
                       className="form-textarea"
@@ -227,7 +227,7 @@ export default function Contact() {
                         email: '',
                         projectType: 'YouTube Edit',
                         videoLength: '1-5 mins',
-                        brief: ''
+                        message: ''
                       });
                     }} 
                     className="btn btn-outline reset-btn font-mono"

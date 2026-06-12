@@ -192,7 +192,130 @@
   object-fit: contain;
   filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.08));
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
 }
+
+/* Paint Splatter (matching reference image) */
+.logo-splash-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px; /* Big paint splash */
+  height: 480px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.paint-splatter-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2)); /* Soft shadow for the entire splash */
+}
+
+/* Base slow animations for individual blobs to make the paint splash look alive */
+.splat-blob {
+  transform-origin: 250px 250px; /* center of the 500x500 SVG */
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.blob-red {
+  animation: pulseBlobRed 7s infinite alternate;
+}
+.blob-yellow-top {
+  animation: pulseBlobYellow 9s infinite alternate;
+}
+.blob-green-top {
+  animation: pulseBlobGreen 8s infinite alternate;
+}
+.blob-purple {
+  animation: pulseBlobPurple 10s infinite alternate;
+}
+.blob-blue {
+  animation: pulseBlobBlue 6s infinite alternate;
+}
+.blob-green-bottom {
+  animation: pulseBlobGreenBottom 9s infinite alternate;
+}
+.blob-orange {
+  animation: pulseBlobOrange 7s infinite alternate;
+}
+.blob-pink {
+  animation: pulseBlobPink 11s infinite alternate;
+}
+.blob-center-red {
+  animation: pulseBlobCenterRed 5s infinite alternate;
+}
+.blob-orange-top {
+  animation: pulseBlobOrangeTop 8s infinite alternate;
+}
+
+/* Individual pulse animations with rotation/translation */
+@keyframes pulseBlobRed {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.06) translate(-5px, 3px) rotate(-4deg); }
+}
+@keyframes pulseBlobYellow {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.05) translate(3px, -5px) rotate(5deg); }
+}
+@keyframes pulseBlobGreen {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.06) translate(5px, -2px) rotate(-3deg); }
+}
+@keyframes pulseBlobPurple {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.08) translate(2px, 5px) rotate(6deg); }
+}
+@keyframes pulseBlobBlue {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.06) translate(-2px, 4px) rotate(-5deg); }
+}
+@keyframes pulseBlobGreenBottom {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.07) translate(-3px, -3px) rotate(4deg); }
+}
+@keyframes pulseBlobOrange {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.05) translate(-4px, 2px) rotate(-4deg); }
+}
+@keyframes pulseBlobPink {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.08) translate(4px, -2px) rotate(5deg); }
+}
+@keyframes pulseBlobCenterRed {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.09) rotate(8deg); }
+}
+@keyframes pulseBlobOrangeTop {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.07) translate(2px, -4px) rotate(-6deg); }
+}
+
+/* Small droplets slow drifting */
+.splat-drop {
+  transform-origin: 250px 250px;
+  animation: driftDrop 7s infinite alternate ease-in-out;
+}
+
+.drop-1 { animation-delay: 0.5s; animation-duration: 8s; }
+.drop-2 { animation-delay: 1.2s; animation-duration: 10s; }
+.drop-3 { animation-delay: 0s; animation-duration: 7s; }
+.drop-4 { animation-delay: 2s; animation-duration: 9s; }
+.drop-5 { animation-delay: 1.5s; animation-duration: 8.5s; }
+.drop-6 { animation-delay: 0.8s; animation-duration: 9.5s; }
+.drop-7 { animation-delay: 2.5s; animation-duration: 10.5s; }
+.drop-8 { animation-delay: 1s; animation-duration: 7.5s; }
+
+@keyframes driftDrop {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6px, -6px) scale(1.1); }
+}
+
+
 
 @keyframes floatLogo {
   0%, 100% {
