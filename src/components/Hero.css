@@ -823,9 +823,22 @@
   .retention-svg {
     height: 45px;
   }
+  .hero-eyebrow {
+    justify-content: center;
+    gap: 8px;
+  }
+  .hero-eyebrow .eyebrow-divider {
+    display: none;
+  }
   .hero-social-links {
     justify-content: center;
     margin-top: 24px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hero-social-link {
+    padding: 8px 16px;
+    font-size: 0.85rem;
   }
   .hero-ghost-text {
     font-size: 16vw;
