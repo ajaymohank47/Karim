@@ -1,0 +1,57 @@
+/* Custom Cursor styles */
+.custom-cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+  box-sizing: border-box;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent-pop);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  box-sizing: border-box;
+}
+
+/* Text inside the cursor */
+.cursor-inner-text {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: center;
+  user-select: none;
+}
+
+.cursor-inner-text.play {
+  color: #0A0A0A;
+}
+
+.cursor-inner-text.view {
+  color: var(--color-accent-pop);
+}
+
+/* Hide default cursor on desktop device width */
+@media (min-width: 769px) {
+  html, 
+  body, 
+  a, 
+  button, 
+  select, 
+  textarea, 
+  input,
+  .selector-btn,
+  .pill-btn,
+  .portfolio-card,
+  .collaborator-card {
+    cursor: none !important;
+  }
+}
